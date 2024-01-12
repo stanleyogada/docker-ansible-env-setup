@@ -4,29 +4,29 @@ services:
   node1:
     container_name: 'control-host'
     image: ubuntu:23.04
-    command: bash
+    command: ['apt', 'update', 'bashbash', 'apt', 'install', 'net-tools', '-y']
     tty: true
 
   node2:
     container_name: 'server-1'
     image: ubuntu:23.04
-    command: bash
+    command: ['apt', 'update', 'bashbash', 'apt', 'install', 'net-tools', '-y']
     tty: true
 
   node3:
     container_name: 'server-2'
     image: ubuntu:22.04
-    command: bash
+    command: ['apt', 'update', 'bashbash', 'apt', 'install', 'net-tools', '-y']
     tty: true
 
   node4:
     container_name: 'server-3'
     image: rockylinux:9.3
-    command: bash
+    command: ['apt', 'update', 'bashbash', 'apt', 'install', 'net-tools', '-y']
     tty: true
 
   node5:
     container_name: 'server-4'
     image: rockylinux:9.3
-    command: bash
+    command: ['apt', 'update', 'bashbash', 'apt', 'install', 'net-tools', '-y']
     tty: true
