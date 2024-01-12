@@ -12,21 +12,29 @@ services:
     image: ubuntu:23.04
     command: /bin/bash
     tty: true
+    volomes:
+      - ./scripts/bootstrap-server.sh:/root/scripts/bootstrap-server.sh
 
   node3:
     container_name: 'server-2'
     image: ubuntu:22.04
     command: /bin/bash
     tty: true
+    volomes:
+      - ./scripts/bootstrap-server.sh:/root/scripts/bootstrap-server.sh
 
   node4:
     container_name: 'server-3'
     image: oraclelinux:8
     command: /bin/bash
     tty: true
+    volomes:
+      - ./scripts/bootstrap-server.sh:/root/scripts/bootstrap-server.sh
 
   node5:
     container_name: 'server-4'
     image: oraclelinux:8
     command: /bin/bash
     tty: true
+    volomes:
+      - ./scripts/bootstrap-server.sh:/root/scripts/bootstrap-server.sh
