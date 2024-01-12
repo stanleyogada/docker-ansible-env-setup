@@ -4,7 +4,7 @@
 
 
 apt update;
-apt install -y iproute2 openssh-server;
+apt install -y iproute2 openssh-server sudo;
 
 echo
 echo "You can now use 'ip', and 'sshd' packages!"

@@ -3,7 +3,7 @@
 # Install required server packages
 
 	
-dnf install -y iproute2 openssh-server;
+dnf install -y sudo;
 
 echo
 echo "You can now use 'ip', and 'sshd' packages!"
