@@ -1,27 +1,32 @@
 version: '3'
 
 services:
-  control:
-    image: ubuntu
-    command: ['bash']
-    tty: true
-
   node1:
-    image: ubuntu
-    command: ['bash']
+    container_name: 'control-host'
+    image: ubuntu:23.04
+    command: bash
     tty: true
 
   node2:
-    image: ubuntu
-    command: ['bash']
+    container_name: 'server-1'
+    image: ubuntu:23.04
+    command: bash
     tty: true
 
   node3:
-    image: rockylinux:9.3
-    command: ['bash']
+    container_name: 'server-2'
+    image: ubuntu:22.04
+    command: bash
     tty: true
 
-  node3:
+  node4:
+    container_name: 'server-3'
     image: rockylinux:9.3
-    command: ['bash']
+    command: bash
+    tty: true
+
+  node5:
+    container_name: 'server-4'
+    image: rockylinux:9.3
+    command: bash
     tty: true
