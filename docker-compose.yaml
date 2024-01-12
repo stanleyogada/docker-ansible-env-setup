@@ -6,33 +6,27 @@ services:
     image: ubuntu:23.04
     command: /bin/bash 
     tty: true
-    volumes:
-      - ./apt-add-ip-package.sh:/root/apt-add-ip-package.sh
 
   node2:
     container_name: 'server-1'
     image: ubuntu:23.04
     command: /bin/bash
     tty: true
-    volumes:
-      - ./apt-add-ip-package.sh:/root/apt-add-ip-package.sh
 
   node3:
     container_name: 'server-2'
     image: ubuntu:22.04
     command: /bin/bash
     tty: true
-    volumes:
-      - ./apt-add-ip-package.sh:/root/apt-add-ip-package.sh
 
   node4:
     container_name: 'server-3'
-    image: rockylinux:9.3
+    image: oraclelinux:8
     command: /bin/bash
     tty: true
 
   node5:
     container_name: 'server-4'
-    image: rockylinux:9.3
+    image: oraclelinux:8
     command: /bin/bash
     tty: true
