@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  control:
+    image: ubuntu
+    command: ['bash']
+    tty: true
+
+  node1:
+    image: ubuntu
+    command: ['bash']
+    tty: true
+
+  node2:
+    image: ubuntu
+    command: ['bash']
+    tty: true
+
+  node3:
+    image: rockylinux:9.3
+    command: ['bash']
+    tty: true
+
+  node3:
+    image: rockylinux:9.3
+    command: ['bash']
+    tty: true
