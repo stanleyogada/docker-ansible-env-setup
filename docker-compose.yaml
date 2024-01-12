@@ -12,7 +12,7 @@ services:
     image: ubuntu:23.04
     command: /bin/bash
     tty: true
-    volomes:
+    volumes:
       - ./scripts/bootstrap-server.sh:/root/scripts/bootstrap-server.sh
 
   node3:
@@ -20,7 +20,7 @@ services:
     image: ubuntu:22.04
     command: /bin/bash
     tty: true
-    volomes:
+    volumes:
       - ./scripts/bootstrap-server.sh:/root/scripts/bootstrap-server.sh
 
   node4:
@@ -28,7 +28,7 @@ services:
     image: oraclelinux:8
     command: /bin/bash
     tty: true
-    volomes:
+    volumes:
       - ./scripts/bootstrap-server.sh:/root/scripts/bootstrap-server.sh
 
   node5:
@@ -36,5 +36,5 @@ services:
     image: oraclelinux:8
     command: /bin/bash
     tty: true
-    volomes:
+    volumes:
       - ./scripts/bootstrap-server.sh:/root/scripts/bootstrap-server.sh

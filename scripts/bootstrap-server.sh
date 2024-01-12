@@ -1,22 +1,5 @@
 #!/bin/bash
 
-# Install required server packages
-
-apt;
-if [[ $? -eq 0 ]]; then
-	apt update;
-	apt install -y iproute2 openssh-server;
-	echo
-	echo "Debain detected!"
-else
-	dnf install -y iproute2 openssh-server;
-	echo
-	echo "Red-hat detected!"
-fi;
-echo
-echo "You can now use 'ip', and 'sshd' packages!"
-
-
 # Setup sshd service
 
 ssh-keygen -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key;
