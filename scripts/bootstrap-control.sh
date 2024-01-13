@@ -10,7 +10,7 @@ echo "You can now use, 'rsync', 'sudo', 'ip', 'ping', 'ssh', 'git', 'vim' and 'a
 # Config each server
 
 read -p "NUMBER of servers? " nserver;
-read -p "USERNAME for all servers? " usern;
+usern="zero";
 
 
 ## touch the hosts file
