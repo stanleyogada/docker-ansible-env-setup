@@ -3,6 +3,9 @@
 
 # Setup sshd service
 
+# Creates the /run/sshd dir as it's required to start the sshd service using `/sbin/sshd -D`
+if [[ ! -e /run/sshd ]]; then mkdir /run/sshd; fi;
+
 if [[ -f /etc/ssh/ssh_host_ecdsa_key ]]; then
 	echo
 	echo "Skipping Config already working!"
