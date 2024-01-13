@@ -30,7 +30,7 @@ fi;
 i=0
 while [[ $i -lt $nserver ]];
 do
-	echo "Enter the info of your server$(expr $1 + 1)! "
+	echo "Enter the info of your server number $(expr $1 + 1)! "
 	read -p "IP? " ipaddr;
 	read -p "HOSTNAME for ($ipaddr)? " hostn;
 
