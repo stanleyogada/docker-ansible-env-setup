@@ -6,6 +6,8 @@ services:
     image: ubuntu:23.04
     command: /bin/bash 
     tty: true
+    volumes:
+      - ./scripts/bootstrap-control.sh:/root/scripts/bootstrap-control.sh
 
   node2:
     container_name: 'server-1'
@@ -14,7 +16,6 @@ services:
     tty: true
     volumes:
       - ./scripts/bootstrap-server.sh:/root/scripts/bootstrap-server.sh
-      - ./scripts/bootstrap-server-apt.sh:/root/scripts/bootstrap-server-apt.sh
 
   node3:
     container_name: 'server-2'
@@ -23,7 +24,6 @@ services:
     tty: true
     volumes:
       - ./scripts/bootstrap-server.sh:/root/scripts/bootstrap-server.sh
-      - ./scripts/bootstrap-server-apt.sh:/root/scripts/bootstrap-server-apt.sh
 
   node4:
     container_name: 'server-3'
@@ -32,7 +32,6 @@ services:
     tty: true
     volumes:
       - ./scripts/bootstrap-server.sh:/root/scripts/bootstrap-server.sh
-      - ./scripts/bootstrap-server-dnf.sh:/root/scripts/bootstrap-server-dnf.sh
 
   node5:
     container_name: 'server-4'
@@ -41,4 +40,3 @@ services:
     tty: true
     volumes:
       - ./scripts/bootstrap-server.sh:/root/scripts/bootstrap-server.sh
-      - ./scripts/bootstrap-server-dnf.sh:/root/scripts/bootstrap-server-dnf.sh
