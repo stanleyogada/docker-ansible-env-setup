@@ -42,10 +42,6 @@ echo
 echo "Enter user 'zero' passwd: "
 useradd -ms /bin/bash -G sudo zero && passwd zero;
 if [[ ! $? -eq 0 ]]; then useradd -ms /bin/bash -G wheel zero && passwd zero; fi; 
-echo
-echo "Enter user 'zero' passwd: "
-su - zero;
-#!/bin/bash
 
 
 
