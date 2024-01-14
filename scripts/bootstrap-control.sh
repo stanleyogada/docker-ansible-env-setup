@@ -63,7 +63,8 @@ ansible all -m ping;
 
 echo
 echo "SUCCESS! You can configure you $nserver servers with ansible!"
+echo
 echo "Run 'cd $ansibleHomePath' to start"
 echo "Happy hacking!"
-
+echo
 echo -e "Note: If any of your server node reported UNREACHABLE, make sure you have input the correct IP for that server node and ensure you ran '/sbin/sshd -D &' on that server node.\nIf you '/sbin/sshd -D &' job is exiting recrete the server node with docker-compose from your host machine using 'docker-compose up -d --force-recrete <service-name e.g node2>'.\n\nThank you."
