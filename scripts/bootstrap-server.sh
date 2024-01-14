@@ -38,10 +38,17 @@ fi;
 
 
 # Create user and switch user
-echo
-echo "Enter user 'zero' passwd: "
-useradd -ms /bin/bash -G sudo zero && passwd zero;
-if [[ ! $? -eq 0 ]]; then useradd -ms /bin/bash -G wheel zero && passwd zero; fi; 
+usern=zero
 
+useradd -ms /bin/bash -G sudo $usern;
+# Handle case for RedHat nodes
+if [[ ! $? -eq 0 ]]; then useradd -ms /bin/bash -G wheel $usern; fi; 
+
+# Add default passwd
+pass="\][poiuy"
+echo -e "$pass\n$pass" | passwd $usern;
+
+echo
+echo "A user '$usern' was created with passwd '$pass'"
 
 
