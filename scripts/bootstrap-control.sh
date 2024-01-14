@@ -55,7 +55,7 @@ done;
 
 # Configure and test Ansible Servers
 
-echo -e "[defaults]\ninventory=$ansibleHomePath/inventory\nprivate_key_file=$keypath" > $ansbleHomePath/ansible.cfg
+echo -e "[defaults]\ninventory=$ansibleHomePath/inventory\nprivate_key_file=$keypath" > $ansibleHomePath/ansible.cfg
 
 cd $ansibleHomePath
 ansible all -m ping
