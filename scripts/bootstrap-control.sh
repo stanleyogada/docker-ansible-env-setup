@@ -9,8 +9,11 @@ echo "You can now use, 'rsync', 'sudo', 'ip', 'ping', 'ssh', 'git', 'vim' and 'a
 
 # Config each server
 
+ansibleHomePath="$HOME/ansible-project"
+echo "" > "$ansibleHomePath/inventory"
+
 read -p "NUMBER of servers? " nserver;
-usern="zero";
+read -p "USERNAME for all servers? " usern;
 
 
 ## touch the hosts file
@@ -30,7 +33,7 @@ fi;
 i=0
 while [[ $i -lt $nserver ]];
 do
-	echo "Enter the info of your server number $(expr $1 + 1)! "
+	echo "Enter the info of your server$(expr $1 + 1)! "
 	read -p "IP? " ipaddr;
 	read -p "HOSTNAME for ($ipaddr)? " hostn;
 
@@ -42,6 +45,17 @@ do
 	echo
 	echo "Shh into $hostn with public key"
 
+	# Add to ansible inventory file
+	mkdir -p $ansibleHomePath
+	echo "$usern@$hostn" >> "$ansibleHomePath/inventory"
+
 	let i++;	
 done;
 
+
+# Configure and test Ansible Servers
+
+echo -e "[defaults]\ninventory=$ansibleHomePath/inventory\nprivate_key_file=$keypath" > $ansbleHomePath/ansible.cfg
+
+cd $ansibleHomePath
+ansible all -m ping
