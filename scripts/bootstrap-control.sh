@@ -10,10 +10,10 @@ echo "You can now use, 'rsync', 'sudo', 'ip', 'ping', 'ssh', 'git', 'vim' and 'a
 # Config each server
 
 ansibleHomePath="$HOME/ansible-project"
-echo "" > "$ansibleHomePath/inventory"
+echo "" > "$ansibleHomePath/inventory";
 
 read -p "NUMBER of servers? " nserver;
-usern="zero"
+usern="zero";
 
 
 ## touch the hosts file
@@ -24,13 +24,13 @@ else
 fi;
 
 
-keypath="$HOME/.ssh/ansible-key"
+keypath="$HOME/.ssh/ansible-key";
 
 if [[ ! -f $keypath ]]; then
-	ssh-keygen -t ed25519 -C "ANSIBLE KEY" -f $keypath
+	ssh-keygen -t ed25519 -C "ANSIBLE KEY" -f $keypath;
 fi;
 
-i=0
+i=0;
 while [[ $i -lt $nserver ]];
 do
 	echo "Enter the info of your server number $(expr $1 + 1)! "
@@ -46,8 +46,8 @@ do
 	echo "Shh into $hostn with public key"
 
 	# Add to ansible inventory file
-	mkdir -p $ansibleHomePath
-	echo "$usern@$hostn" >> "$ansibleHomePath/inventory"
+	mkdir -p $ansibleHomePath;
+	echo "$usern@$hostn" >> "$ansibleHomePath/inventory";
 
 	let i++;	
 done;
@@ -55,10 +55,11 @@ done;
 
 # Configure and test Ansible Servers
 
-echo -e "[defaults]\ninventory=$ansibleHomePath/inventory\nprivate_key_file=$keypath" > $ansibleHomePath/ansible.cfg
+echo -e "[defaults]\ninventory=$ansibleHomePath/inventory\nprivate_key_file=$keypath" > $ansibleHomePath/ansible.cfg;
 
 cd $ansibleHomePath
-ansible all -m ping
+git init;
+ansible all -m ping;
 
 echo
 echo "SUCCESS! You can configure you $nserver servers with ansible!"
