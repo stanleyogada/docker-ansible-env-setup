@@ -28,7 +28,6 @@
 3. Then to make sure a user (_zero_) and SSH daemon are setup correctly, run `bash ~/scripts/bootstrap-server.sh`
    - The above script might prompt you for the following:
    - **SSH default keys: just hit enter about 6 times for this.**
-   - **User password: a new user called _zero_ was created you need to a password 2 times (make sure the password is the same for all servers)**
 4. Lastly to start the SSH daemon, run `/sbin/sshd -D &`
 
 > Note: \
