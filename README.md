@@ -4,6 +4,12 @@
 > This will create 5 nodes in total \
 > See the `docker-compose.yaml` and edit to your taste
 
+> Note:
+> Each of the 4 nodes (each server node) \
+> have the following default user credentials on them. \
+> username: **_zero_** \
+> passwd: **_\][poiuy_**
+
 
 ## Prerequisites 
 - Have **Docker** installed
