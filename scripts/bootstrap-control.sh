@@ -13,7 +13,7 @@ ansibleHomePath="$HOME/ansible-project"
 echo "" > "$ansibleHomePath/inventory"
 
 read -p "NUMBER of servers? " nserver;
-read -p "USERNAME for all servers? " usern;
+usern="zero"
 
 
 ## touch the hosts file
