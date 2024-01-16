@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install all required packages
-apt update && apt install -y rsync sudo iproute2 iputils-ping openssh-client vim git ansible;
+apt update && apt install -y rsync sudo iproute2 iputils-ping openssh-client openssh-server vim git ansible;
 
 echo 
 echo "You can now use, 'rsync', 'sudo', 'ip', 'ping', 'ssh', 'git', 'vim' and 'ansible'"
@@ -12,9 +12,7 @@ echo "You can now use, 'rsync', 'sudo', 'ip', 'ping', 'ssh', 'git', 'vim' and 'a
 ansibleHomePath="$HOME/ansible-project"
 echo "" > "$ansibleHomePath/inventory";
 
-read -p "NUMBER of servers? " nserver;
 usern="zero";
-
 
 ## touch the hosts file
 if [[ ! -f /etc/hosts.bkp ]]; then
@@ -30,12 +28,14 @@ if [[ ! -f $keypath ]]; then
 	ssh-keygen -t ed25519 -C "ANSIBLE KEY" -f $keypath;
 fi;
 
-i=0;
-while [[ $i -lt $nserver ]];
+network="172.18.0";
+current_host=3;
+end_host=6;
+n=1;
+while [[ $current_host -le $end_host ]];
 do
-	echo "Enter the info of your server number $(expr $1 + 1)! "
-	read -p "IP? " ipaddr;
-	read -p "HOSTNAME for ($ipaddr)? " hostn;
+	ipaddr="$network.$current_host"
+	hostn="server-$n"
 
 	echo "$ipaddr $hostn" | sudo tee -a /etc/hosts;
 	echo
@@ -49,7 +49,8 @@ do
 	mkdir -p $ansibleHomePath;
 	echo "$usern@$hostn" >> "$ansibleHomePath/inventory";
 
-	let i++;	
+	let current_host++;	
+	let n++;
 done;
 
 
