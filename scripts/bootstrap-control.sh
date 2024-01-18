@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Set noninteractive for apt and set TimeZone environment for the tzdata pacakage
+export DEBIAN_FRONTEND=noninteractive;
+export TZ=Africa/Lagos;
+
 # Install all required packages
 apt update && apt install -y rsync sudo iproute2 iputils-ping openssh-client openssh-server vim git ansible;
 
@@ -13,6 +17,7 @@ ansibleHomePath="$HOME/ansible-project"
 echo "" > "$ansibleHomePath/inventory";
 
 usern="zero";
+pass="\][poiuy";
 
 ## touch the hosts file
 if [[ ! -f /etc/hosts.bkp ]]; then
@@ -25,7 +30,7 @@ fi;
 keypath="$HOME/.ssh/ansible-key";
 
 if [[ ! -f $keypath ]]; then
-	ssh-keygen -t ed25519 -C "ANSIBLE KEY" -f $keypath;
+	ssh-keygen -t ed25519 -C "ANSIBLE KEY" -f $keypath -N "";
 fi;
 
 network="172.18.0";
@@ -41,15 +46,15 @@ do
 	echo
 	echo "Edited the hosts config file!"
 
-	ssh-copy-id -i "$keypath.pub" "$usern@$hostn";
+	sshpass -p "$pass" ssh-copy-id -o StrictHostKeyChecking=no -i "$keypath.pub" "$usern@$hostn";
 	echo
-	echo "Shh into $hostn with public key"
+	echo "SSH public-key ("$keypath.pub") copied to $usern@$hostn"
 
 	# Add to ansible inventory file
 	mkdir -p $ansibleHomePath;
 	echo "$usern@$hostn" >> "$ansibleHomePath/inventory";
 
-	let current_host++;	
+	let current_host++;
 	let n++;
 done;
 
