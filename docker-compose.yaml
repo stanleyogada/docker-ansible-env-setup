@@ -7,7 +7,7 @@ services:
     command: /bin/bash 
     tty: true
     volumes:
-      - ./scripts/bootstrap-control.sh:/root/scripts/bootstrap-control.sh
+      - ./scripts/bootstrap-control.sh:/usr/local/bin/bootstrap-control.sh
     networks:
       my_network:
         ipv4_address: 172.18.0.2
@@ -15,10 +15,12 @@ services:
   node2:
     container_name: 'server-1'
     image: ubuntu:23.04
-    command: /bin/bash
+    command: bootstrap-script-inject.sh bootstrap-server.sh
     tty: true
     volumes:
-      - ./scripts/bootstrap-server.sh:/root/scripts/bootstrap-server.sh
+      - ./scripts/bootstrap-bashrc-content.txt:/root/.bootstrap-bashrc-content.txt
+      - ./scripts/bootstrap-server.sh:/usr/local/bin/bootstrap-server.sh
+      - ./scripts/bootstrap-script-inject.sh:/usr/local/bin/bootstrap-script-inject.sh
     networks:
       my_network:
         ipv4_address: 172.18.0.3
@@ -29,7 +31,7 @@ services:
     command: /bin/bash
     tty: true
     volumes:
-      - ./scripts/bootstrap-server.sh:/root/scripts/bootstrap-server.sh
+      - ./scripts/bootstrap-server.sh:/usr/local/bin/bootstrap-server.sh
     networks:
       my_network:
         ipv4_address: 172.18.0.4
@@ -40,7 +42,7 @@ services:
     command: /bin/bash
     tty: true
     volumes:
-      - ./scripts/bootstrap-server.sh:/root/scripts/bootstrap-server.sh
+      - ./scripts/bootstrap-server.sh:/usr/local/bin/bootstrap-server.sh
     networks:
       my_network:
         ipv4_address: 172.18.0.5
@@ -51,7 +53,7 @@ services:
     command: /bin/bash
     tty: true
     volumes:
-      - ./scripts/bootstrap-server.sh:/root/scripts/bootstrap-server.sh
+      - ./scripts/bootstrap-server.sh:/usr/local/bin/bootstrap-server.sh
     networks:
       my_network:
         ipv4_address: 172.18.0.6

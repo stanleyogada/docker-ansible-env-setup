@@ -22,12 +22,12 @@ if [[ -f /etc/ssh/ssh_host_ecdsa_key ]]; then
 	echo "Skipping Config already working!"
 else
 
-	ssh-keygen -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key;
-	ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key;
-	ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key;
+	ssh-keygen -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key -N "";
+	ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -N "";
+	ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N "";
 
 	echo
-	echo "SSHD service default keys is setup in '/etc/ssh'!"
+	echo "SSHD service default keys is setup in '/etc/ssh'!";
 fi;
 
 
@@ -51,6 +51,6 @@ echo "A user '$usern' was created with passwd '$pass'"
 # Have the script + sshd server run auto
 has_content=`grep "$0" $HOME/.bashrc`;
 if [[ -z $has_content ]]; then
-	echo "\n$0\n/sbin/sshd -D &" | sudo tee -a $HOME/.bashrc;
+	echo -e "\n$0\n/sbin/sshd -D &" | sudo tee -a $HOME/.bashrc;
 fi;
 
