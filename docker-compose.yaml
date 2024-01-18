@@ -4,11 +4,11 @@ services:
   node1:
     container_name: 'control-host'
     image: ubuntu:23.04
-    command: bootstrap-script-inject.sh bootstrap-control.sh
+    command: docker-entrypoint.sh bootstrap-control.sh
     tty: true
     volumes:
       - ./scripts/bootstrap-control.sh:/usr/local/bin/bootstrap-control.sh
-      - ./scripts/bootstrap-script-inject.sh:/usr/local/bin/bootstrap-script-inject.sh
+      - ./scripts/docker-entrypoint.sh:/usr/local/bin/docker-entrypoint.sh
     networks:
       my_network:
         ipv4_address: 172.18.0.2
@@ -16,11 +16,11 @@ services:
   node2:
     container_name: 'server-1'
     image: ubuntu:23.04
-    command: bootstrap-script-inject.sh bootstrap-server.sh
+    command: docker-entrypoint.sh bootstrap-server.sh
     tty: true
     volumes:
       - ./scripts/bootstrap-server.sh:/usr/local/bin/bootstrap-server.sh
-      - ./scripts/bootstrap-script-inject.sh:/usr/local/bin/bootstrap-script-inject.sh
+      - ./scripts/docker-entrypoint.sh:/usr/local/bin/docker-entrypoint.sh
     networks:
       my_network:
         ipv4_address: 172.18.0.3
@@ -28,11 +28,11 @@ services:
   node3:
     container_name: 'server-2'
     image: ubuntu:22.04
-    command: bootstrap-script-inject.sh bootstrap-server.sh
+    command: docker-entrypoint.sh bootstrap-server.sh
     tty: true
     volumes:
       - ./scripts/bootstrap-server.sh:/usr/local/bin/bootstrap-server.sh
-      - ./scripts/bootstrap-script-inject.sh:/usr/local/bin/bootstrap-script-inject.sh
+      - ./scripts/docker-entrypoint.sh:/usr/local/bin/docker-entrypoint.sh
     networks:
       my_network:
         ipv4_address: 172.18.0.4
@@ -40,11 +40,11 @@ services:
   node4:
     container_name: 'server-3'
     image: oraclelinux:8
-    command: bootstrap-script-inject.sh bootstrap-server.sh
+    command: docker-entrypoint.sh bootstrap-server.sh
     tty: true
     volumes:
       - ./scripts/bootstrap-server.sh:/usr/local/bin/bootstrap-server.sh
-      - ./scripts/bootstrap-script-inject.sh:/usr/local/bin/bootstrap-script-inject.sh
+      - ./scripts/docker-entrypoint.sh:/usr/local/bin/docker-entrypoint.sh
     networks:
       my_network:
         ipv4_address: 172.18.0.5
@@ -52,11 +52,11 @@ services:
   node5:
     container_name: 'server-4'
     image: oraclelinux:8
-    command: bootstrap-script-inject.sh bootstrap-server.sh
+    command: docker-entrypoint.sh bootstrap-server.sh
     tty: true
     volumes:
       - ./scripts/bootstrap-server.sh:/usr/local/bin/bootstrap-server.sh
-      - ./scripts/bootstrap-script-inject.sh:/usr/local/bin/bootstrap-script-inject.sh
+      - ./scripts/docker-entrypoint.sh:/usr/local/bin/docker-entrypoint.sh
     networks:
       my_network:
         ipv4_address: 172.18.0.6
