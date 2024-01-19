@@ -18,6 +18,9 @@
 
 ## Usage
 
+https://github.com/stanleyogada/docker-ansible-env-setup/assets/102979724/08d89bc4-27ac-49f6-8a02-81f76e93bc47
+
+
 1. Git clone the repo and cd to it.
 2. Run `docker-compose up -d`.
 3. Then view the logs, run `docker-compose logs -f`
