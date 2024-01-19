@@ -2,6 +2,7 @@
 
 > Note: \
 > This will create 5 nodes in total \
+> 3 Ubuntu and 2 Oracle-Linux machines \
 > See the `docker-compose.yaml`
 
 
