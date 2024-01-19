@@ -5,7 +5,7 @@ export DEBIAN_FRONTEND=noninteractive;
 export TZ=Africa/Lagos;
 
 # Install all required packages
-apt update && apt install -y rsync sudo iproute2 iputils-ping openssh-client openssh-server vim git ansible;
+apt update && apt install -y rsync sudo iproute2 iputils-ping sshpass openssh-client openssh-server vim git ansible;
 
 echo 
 echo "You can now use, 'rsync', 'sudo', 'ip', 'ping', 'ssh', 'git', 'vim' and 'ansible'"
@@ -61,7 +61,12 @@ done;
 
 # Configure and test Ansible Servers
 
-echo -e "[defaults]\ninventory=$ansibleHomePath/inventory\nprivate_key_file=$keypath" > $ansibleHomePath/ansible.cfg;
+cat > $ansibleHomePath/ansible.cfg <<EOF
+[defaults]
+inventory=$ansibleHomePath/inventory
+private_key_file=$keypath
+EOF
+
 
 cd $ansibleHomePath
 git init;
