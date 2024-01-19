@@ -1,9 +1,12 @@
 # DOCKER ANSIBLE LAB
 
+
 > Note: \
 > This will create 5 nodes in total \
 > 3 Ubuntu and 2 Oracle-Linux machines \
-> See the `docker-compose.yaml`
+> See the `docker-compose.yaml` \
+> \
+> [Also check out this blog post:](https://dev.to/stanleyogada/simplifying-ansible-lab-setup-with-docker-888)
 
 
 > Note:
