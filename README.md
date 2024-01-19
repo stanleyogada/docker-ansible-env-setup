@@ -4,6 +4,13 @@
 > This will create 5 nodes in total \
 > See the `docker-compose.yaml`
 
+
+> Note:
+> Each of the 4 nodes (each server node) \
+> have the following default user credentials on them. \
+> username: **_zero_** \
+> passwd: **_\][poiuy_**
+
 ## Prerequisites 
 - Have **Docker** installed
 - Have **Docker Compose** installed
@@ -17,7 +24,6 @@
 3. Then view the logs, run `docker-compose logs -f`
 4. Wait for about 1-5 minutes for a message like "SUCCESS! ... Happy hacking!"
 5. Your lab is ready!
-
 
 ### Usage for the control-host
 1. Open a fresh terminal for each one
