@@ -4,16 +4,8 @@
 > Note: \
 > This will create 5 nodes in total \
 > 3 Ubuntu and 2 Oracle-Linux machines \
-> See the `docker-compose.yaml` \
-> \
-> [Also check out this blog post:](https://dev.to/stanleyogada/simplifying-ansible-lab-setup-with-docker-888)
+> See the `docker-compose.yaml`
 
-
-> Note:
-> Each of the 4 nodes (each server node) \
-> have the following default user credentials on them. \
-> username: **_zero_** \
-> password: **_\][poiuy_**
 
 ## Prerequisites 
 - Have **Docker** installed
@@ -37,11 +29,19 @@
 2. Run `docker container exec -it control-host bash`
 3. Stay as root user.
 4. Then in the container, run `cd ~/ansible-project` as this is your base ansible directory
-5. Your lab is ready! You can now control and configure all servers. Run `ansible all -m ping` to test your servers' connnections.
+5. Your lab is ready! You can now control and configure all servers. Run `ansible all -m ping` to test your servers' connections.
 
+
+> Note:
+> Each of the 4 nodes (each server node) \
+> have the following default user credentials on them. \
+> username: **_zero_** \
+> password: **_\][poiuy_**
 
 ### Usage for servers (There are 4 four servers, this is an example for just server-1)
 1. Open a fresh terminal for each one
 2. Run `docker container exec -it server-1 bash`
 3. Then switch to `zero` user, run `su - zero` use `\][poiuy` as the password.
 
+
+[For more, also check out this blog post:](https://dev.to/stanleyogada/simplifying-ansible-lab-setup-with-docker-888)
