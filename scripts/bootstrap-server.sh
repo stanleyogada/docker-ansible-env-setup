@@ -47,10 +47,3 @@ echo -e "$pass\n$pass" | passwd $usern;
 echo
 echo "A user '$usern' was created with passwd '$pass'"
 
-
-# Have the script + sshd server run auto
-has_content=`grep "$0" $HOME/.bashrc`;
-if [[ -z $has_content ]]; then
-	echo -e "\n$0\n/sbin/sshd -D &" | sudo tee -a $HOME/.bashrc;
-fi;
-
