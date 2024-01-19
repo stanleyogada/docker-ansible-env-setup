@@ -26,8 +26,8 @@ else
        sudo cp /etc/hosts.bkp /etc/hosts;
 fi;
 
-
 keypath="$HOME/.ssh/ansible-key";
+rm $HOME/.ssh/known*;
 
 if [[ ! -f $keypath ]]; then
 	ssh-keygen -t ed25519 -C "ANSIBLE KEY" -f $keypath -N "";
